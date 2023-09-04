@@ -5,6 +5,8 @@
 //  Created by Borinschi Ivan on 19.02.2021.
 //
 
+
+//Здесь структура данных для категории услуг
 import DSKit
 import DSKit
 import DSKitFakery
@@ -38,7 +40,7 @@ extension Service {
         
         let text = DSTextComposer()
         text.add(type: .headline, text: title)
-        text.add(type: .subheadline, text: "Duration: ", icon: UIImage(systemName: "timer"))
+        text.add(type: .subheadline, text: "Длительность: ", icon: UIImage(systemName: "timer"))
         text.add(type: .footnote, text: duration, newLine: false)
         text.add(price: price)
         
@@ -67,6 +69,6 @@ extension Array where Element == Service {
             return total + service.amount
         }
         
-        return DSPrice(amount: total.stringAmount(), currency: self.first?.currency ?? "$")
+        return DSPrice(amount: total.stringAmount(), currency: self.first?.currency ?? "₽")
     }
 }

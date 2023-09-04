@@ -5,6 +5,7 @@
 //  Created by Borinschi Ivan on 18.12.2020.
 //
 
+// Лист отзывов
 import UIKit
 import DSKit
 import DSKitFakery
@@ -27,13 +28,13 @@ class SpecialistDetailsFeedbackViewController: DSViewController {
     /// Update current content on the screen
     func update() {
         
-        let button = DSButtonVM(title: "Submit") { _ in
-            self.show(message: "Thank you for your feedback", type: .success) {
+        let button = DSButtonVM(title: "Отправить") { _ in
+            self.show(message: "Спасибо за ваш отзыв", type: .success) {
                 self.dismiss()
             }
         }
         
-        let cancel = DSButtonVM(title: "Cancel", type: .link) { _ in
+        let cancel = DSButtonVM(title: "Закрыть", type: .link) { _ in
             self.dismiss()
         }
         
@@ -46,7 +47,7 @@ class SpecialistDetailsFeedbackViewController: DSViewController {
     func specialistDetailsSection() -> DSSection {
         
         // Title
-        let title = DSLabelVM(.title1, text: "Feedback")
+        let title = DSLabelVM(.title1, text: "Отзыв о специалисте")
         
         // Specialist
         var specialist = person.viewModel()
@@ -68,7 +69,7 @@ class SpecialistDetailsFeedbackViewController: DSViewController {
         }
         textView.height = .absolute(100)
         
-        return [textView].list().subheadlineHeader("Write your feedback")
+        return [textView].list().subheadlineHeader("Напиши свой отзыв")
     }
     
     /// Rating section
@@ -93,7 +94,7 @@ class SpecialistDetailsFeedbackViewController: DSViewController {
             self.update()
         })
         
-        return ratingViewModels.gallery().subheadlineHeader("Rate the specialist")
+        return ratingViewModels.gallery().subheadlineHeader("Оцените визит к барберу")
     }
     
     /// Star view model

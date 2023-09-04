@@ -5,13 +5,15 @@
 //  Created by Borinschi Ivan on 18.12.2020.
 //
 
+// Настройка вида сервисных услуг
+
 import UIKit
 import DSKit
 import DSKitFakery
 
 class SelectServicesViewController: DSViewController {
     
-    //  Services group
+    //  Services group - Группа ячеек
     class ServiceGroup {
         
         var title: String
@@ -28,7 +30,7 @@ class SelectServicesViewController: DSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Services"
+        title = "Услуги"
         setUpServicesGroups()
         update()
     }
@@ -52,7 +54,7 @@ class SelectServicesViewController: DSViewController {
     }
 }
 
-// MARK: - Total View
+// MARK: - Total View -  Общий вид
 extension SelectServicesViewController {
     
     /// Update total view
@@ -64,16 +66,16 @@ extension SelectServicesViewController {
             
             let servicesCount = BookingManager.shared.services.count
             
-            let totalText = DSLabelVM(.title2, text: "Total")
+            let totalText = DSLabelVM(.title2, text: "Всего")
             
-            let forString = "for \(servicesCount) \(servicesCount.getCorrectForm(singular: "service", plural: "services")) "
+            let forString = "Для \(servicesCount) \(servicesCount.getCorrectForm(singular: "услуга", plural: "услуги")) "
             
             let priceText = DSTextComposer(alignment: .right)
             priceText.add(type: .subheadline, text: forString)
             priceText.add(price: BookingManager.shared.services.totalPrice(), size: .large, newLine: false)
             let priceVM = priceText.textViewModel()
             
-            var button = DSButtonVM(title: "Continue")
+            var button = DSButtonVM(title: "Продолжить")
             button.didTap { [unowned self] (button: DSButtonVM) in
                 self.pop()
             }
@@ -83,7 +85,7 @@ extension SelectServicesViewController {
     }
 }
 
-// MARK: - Set up
+// MARK: - Set up - Устаановка названия заголовка секций в выборе услуг
 extension SelectServicesViewController {
     
     /// Prepare service groups
@@ -92,7 +94,7 @@ extension SelectServicesViewController {
         let spa = ServiceGroup(title: "Spa", services: BookingManager.getSpaServices())
         let barber = ServiceGroup(title: "Barber", services: BookingManager.getBarberServices())
         let proBarber = ServiceGroup(title: "Pro Barber", services: BookingManager.getProBarberServices())
-        let promotions = ServiceGroup(title: "Promotions", services: BookingManager.getPromotionsServices())
+        let promotions = ServiceGroup(title: "Акции", services: BookingManager.getPromotionsServices())
         
         serviceGroups.append(contentsOf: [spa, barber, proBarber, promotions])
     }
@@ -105,8 +107,8 @@ extension SelectServicesViewController {
         let services = isSelectedServicesExpanded ? selectedServices : []
         
         let section = getServicesSection(services: services , addAction: false)
-        section.identifier = "Selected"
-        section.headlineHeader("Selected")
+        section.identifier = "Выбрано"
+        section.headlineHeader("Выбрано")
         sections.append(section)
     }
     

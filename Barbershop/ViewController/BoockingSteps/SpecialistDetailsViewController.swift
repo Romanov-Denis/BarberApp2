@@ -4,7 +4,7 @@
 //
 //  Created by Borinschi Ivan on 18.12.2020.
 //
-
+// Экран отзывов о сотруднике
 import UIKit
 import DSKit
 import DSKitFakery
@@ -27,7 +27,7 @@ class SpecialistDetailsViewController: DSViewController {
         show(content: [getSpecialistSection(), getFeedbackSection()])
         
         // Leave feedback action
-        let button = DSButtonVM(title: "Leave feedback", icon: UIImage(systemName: "message.fill")) { _ in
+        let button = DSButtonVM(title: "Оставить отзыв", icon: UIImage(systemName: "message.fill")) { _ in
             self.present(vc: SpecialistDetailsFeedbackViewController(person: self.person), presentationStyle: .fullScreen)
         }
         showBottom(content: button)

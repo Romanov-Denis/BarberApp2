@@ -5,6 +5,8 @@
 //  Created by Borinschi Ivan on 18.12.2020.
 //
 
+// Тееееек это вьюха с 3мя кнопками и кнопка подтверждения
+
 import UIKit
 import DSKit
 import DSKitFakery
@@ -18,7 +20,7 @@ class BookViewController: DSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "New Booking"
+        title = "Запись"
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,14 +51,14 @@ class BookViewController: DSViewController {
     }
 }
 
-// MARK: - Shops
+// MARK: - Shops - Барбершоп
 extension BookViewController {
     
     /// Shop
     /// - Returns: DSSection
     func getSelectedShopSection() -> DSSection {
         
-        let header = self.header(title: "Shop")
+        let header = self.header(title: "Барбершоп")
         var shop = address.viewModel()
         shop.height = 200
         
@@ -67,7 +69,7 @@ extension BookViewController {
     }
 }
 
-// MARK: - Services
+// MARK: - Services - Услуги
 extension BookViewController {
     
     /// Select service
@@ -76,15 +78,17 @@ extension BookViewController {
         
         if !BookingManager.shared.services.isEmpty {
             
+            // Если пользователь уже выбрал все услуги, мы показываем ему
             // If user already selected all services he need, we will show them
             let serviceSection = getServicesSection(services: BookingManager.shared.services)
             return serviceSection
             
         } else {
             
+            // Если мы покажем выбраные
             // Else we will show select new service option
-            var services = DSActionVM(title: "Services",
-                                      subtitle: "Select service",
+            var services = DSActionVM(title: "Услуга",
+                                      subtitle: "Выберите услугу",
                                       leftSFSymbol: "scissors.badge.ellipsis")
             
             services.didTap { [unowned self] (action: DSActionVM) in
@@ -107,7 +111,7 @@ extension BookViewController {
         var viewModels = [DSViewModel]()
         
         // Header view
-        let header = self.header(title: "Service")
+        let header = self.header(title: "Услуга")
         viewModels.append(header)
         
         // Services view models
@@ -134,7 +138,7 @@ extension BookViewController {
         viewModels.append(contentsOf: serviceViewModels)
         
         // Edit selected services action
-        var edit = DSActionVM(title: "Manage selected services")
+        var edit = DSActionVM(title: "Редактировать выбранную услугу")
         edit.didTap { [unowned self] (action: DSActionVM) in
             let vc = SelectServicesViewController()
             self.push(vc)
@@ -147,7 +151,8 @@ extension BookViewController {
     }
 }
 
-// MARK: - Specialists
+// MARK: - Specialists - Барберы
+//
 extension BookViewController {
     
     /// Select selectedSpecialist section
@@ -158,16 +163,16 @@ extension BookViewController {
         
         if let person = BookingManager.shared.selectedSpecialist {
             
-            // If we have selected specialist, show selected specialist
-            let title = self.header(title: "Barber")
+            // If we have selected specialist, show selected specialist - при выборе специалистаспоказываем выбранного барбера
+            let title = self.header(title: "Барбер")
             let specialist = getSpecialistViewModel(person: person)
             viewModels.append(contentsOf: [title, specialist])
             
         } else {
             
-            // If we don't have any specialist selected, show select specialist
-            var specialist = DSActionVM(title: "Barber",
-                                        subtitle: "Select specialist",
+            // If we don't have any specialist selected, show select specialist - если специалист не выбран показываем всех
+            var specialist = DSActionVM(title: "Барбер",
+                                        subtitle: "Выберите сотрудника",
                                         leftSFSymbol: "person.fill")
             
             specialist.didTap { [unowned self] (action: DSActionVM) in
@@ -210,7 +215,7 @@ extension BookViewController {
     }
 }
 
-// MARK: - Date & Time
+// MARK: - Date & Time - Дата и время
 extension BookViewController {
     
     /// Date and time
@@ -220,7 +225,7 @@ extension BookViewController {
         var viewModels = [DSViewModel]()
         
         if !BookingManager.shared.services.isEmpty || BookingManager.shared.dateAndTime != nil {
-            let title = self.header(title: "Date & Time")
+            let title = self.header(title: "Дата и время")
             viewModels.append(title)
         }
         
@@ -242,8 +247,8 @@ extension BookViewController {
         } else {
             
             // Else we will show select date & time action
-            var dateAndTime = DSActionVM(title: "Date & Time",
-                                         subtitle: "Select date and time",
+            var dateAndTime = DSActionVM(title: "Дата и время",
+                                         subtitle: "Выберите дату и время ",
                                          leftSFSymbol: "calendar")
             
             // Open select date and time
@@ -288,7 +293,7 @@ extension BookViewController {
     }
 }
 
-// MARK: - Book Action
+// MARK: - Book Action - Подтверждение брони
 extension BookViewController {
     
     /// Book section
@@ -299,7 +304,7 @@ extension BookViewController {
         
         if BookingManager.shared.isValidBooking()  {
             
-            var button = DSButtonVM(title: "Complete Booking", icon: UIImage(systemName: "bookmark.fill"))
+            var button = DSButtonVM(title: "Подтвердить запись", icon: UIImage(systemName: "bookmark.fill"))
             
             // Handle did tap on button
             button.didTap { [unowned self] (_ : DSButtonVM) in
@@ -316,7 +321,7 @@ extension BookViewController {
     
     /// Complete booking
     func completeBooking() {
-        show(message: "Booking was successfully completed", type: .success, timeOut: 1) {
+        show(message: "Бронирование завершено", type: .success, timeOut: 1) {
             self.popToRoot()
         }
     }

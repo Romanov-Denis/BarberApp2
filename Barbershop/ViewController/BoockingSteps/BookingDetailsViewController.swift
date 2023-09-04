@@ -43,7 +43,7 @@ class BookingDetailsViewController: DSViewController {
         
         // Price
         let priceText = DSTextComposer()
-        priceText.add(price: DSPrice(amount: "10.00", currency: "$"), size: .extraLarge)
+        priceText.add(price: DSPrice(amount: "1000", currency: "₽"), size: .extraLarge)
         let price = DSActionVM(composer: priceText)
         
         return [title, description, specialist, shop, date, price].list()

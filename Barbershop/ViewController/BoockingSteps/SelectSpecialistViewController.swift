@@ -5,6 +5,8 @@
 //  Created by Borinschi Ivan on 18.12.2020.
 //
 
+
+// Экран выбора специалиста
 import UIKit
 import DSKit
 import DSKitFakery
@@ -16,7 +18,7 @@ class SelectSpecialistViewController: DSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Select specialist"
+        title = "Выбор специалиста"
         update()
     }
     
@@ -46,7 +48,7 @@ extension SelectSpecialistViewController {
             // Specialist
             let specialist = getSpecialistViewModel(for: person)
             
-            let text = DSLabelVM(.caption2, text: "Nearest time for appointment")
+            let text = DSLabelVM(.caption2, text: "Ближайшее время для записи")
             let specialistSection = [specialist, text].list()
             
             // Available times section

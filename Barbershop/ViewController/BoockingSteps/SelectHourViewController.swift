@@ -5,6 +5,10 @@
 //  Created by Borinschi Ivan on 23.12.2020.
 //
 
+
+// Детальный вид времени
+
+
 import Foundation
 import DSKit
 
@@ -16,7 +20,7 @@ class SelectHourViewController: DSViewController {
     override func viewDidLoad() {
         
         super.viewDidLoad()
-        title = "Hour"
+        title = "Час"
         
         // Show available times
         show(content: getAvailableTimes())
@@ -32,7 +36,7 @@ class SelectHourViewController: DSViewController {
     }
 }
 
-// MARK: - Times section
+// MARK: - Times section - выбор времени
 extension SelectHourViewController {
     
     /// Generate available times for person
@@ -41,14 +45,14 @@ extension SelectHourViewController {
     func getAvailableTimes() -> [DSSection] {
         
         var sections = [DSSection]()
-        sections.append(getTimeIntervalsSection(startHour: 8, header: "Morning"))
-        sections.append(getTimeIntervalsSection(startHour: 12, header: "Day"))
-        sections.append(getTimeIntervalsSection(startHour: 18, header: "Evening"))
+        sections.append(getTimeIntervalsSection(startHour: 10, header: "Утро"))
+        sections.append(getTimeIntervalsSection(startHour: 13, header: "День"))
+        sections.append(getTimeIntervalsSection(startHour: 18, header: "Вечер"))
         return sections
     }
 }
 
-// MARK: - Times section
+// MARK: - Times section - ячейка времени
 extension SelectHourViewController {
     
     /// Get time interval section
@@ -58,15 +62,15 @@ extension SelectHourViewController {
         
         var models = [DSViewModel]()
         
-        // Randomly generate hours and minutes
+        // Randomly generate hours and minutes - случайный час и минута
         for i in 1...Int.random(in: 2...4) {
             
             let hour = startHour + i
             
-            // Hour
+            // Hour - час
             let timeFixHour = getTimeViewModel(hour: hour, minute: 15)
             
-            // Half hour
+            // Half hour - пол часа
             let timeHalfHour = getTimeViewModel(hour: hour, minute: 30)
             
             models.append(contentsOf: [timeFixHour, timeHalfHour])
@@ -83,11 +87,11 @@ extension SelectHourViewController {
     
     func getTimeViewModel(hour: Int, minute: Int) -> DSViewModel {
         
-        // Style
+        // Style - вид ячейки
         let font = appearance.fonts.headline.withSize(15)
         let color = appearance.secondaryView.text.title1
         
-        // Hour
+        // Hour - час
         var time = DSLabelVM(.custom(font: font, color: color), text: "\(hour): \(minute)", alignment: .center)
         time.height = .absolute(43)
         time.style.displayStyle = .grouped(inSection: false)

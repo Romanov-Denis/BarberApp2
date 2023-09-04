@@ -3,7 +3,7 @@
 //  Barber Shop
 //
 //  Created by Borinschi Ivan on 18.12.2020.
-//
+// Здесь находится модель каталога услуг и акций
 
 import Foundation
 import DSKit
@@ -11,24 +11,25 @@ import DSKitFakery
 
 class BookingManager {
     
-    // Simulate user authorization
+    // Simulate user authorization - симулируем авторищацию пользователя
     public var authorized: Bool = false
     
-    // Selected specialist for booking
+    // Selected specialist for booking - выбор барбера
     public var selectedSpecialist: DSPerson?
     
-    // Selected services
+    
+    // Selected services - Выбор услуги
     public var services = [Service]()
     
-    // Selected date and time
+    // Selected date and time - выбор даты и времени
     public var dateAndTime: Date?
     
-    // Is current booking valid
+    // Is current booking valid - проверка заполнения всех данных
     func isValidBooking() -> Bool {
         return selectedSpecialist != nil && !services.isEmpty && dateAndTime != nil
     }
     
-    // Shared instance
+    // Shared instance - Экземпляр класса
     static let shared = BookingManager()
     
     public init() {}
@@ -45,37 +46,34 @@ extension BookingManager {
     static func getPromotionsServices() -> [Service] {
         
         [
-            Service(id: 1, title: "Happy Birth Day", duration: "1h", amount: 1000, regularAmount: 2000, currency: "$", picture: URL.birthdayUrl()),
-            Service(id: 2, title: "First Visit -10%", duration: "1h", amount: 1000, regularAmount: 2000,  currency: "$"),
-            Service(id: 3, title: "Father and Son -15%", duration: "1h", amount: 1000, regularAmount: 2000,  currency: "$"),
-            Service(id: 4, title: "Complex (Monday and Tuesday 10:00 - 13:00)", duration: "1h", amount: 1000,regularAmount: 2000,  currency: "$"),
-            Service(id: 5, title: "Haircut (Monday and Tuesday 10:00 - 13:00)", duration: "1h", amount: 1000, regularAmount: 2000, currency: "$")
+            Service(id: 1, title: "День рождения", duration: "1 час", amount: 1000, regularAmount: 2000, currency: "₽", picture: URL.birthdayUrl()),
+            Service(id: 2, title: "Первый визит -10 %", duration: "1 час", amount: 1000, regularAmount: 2000,  currency: "₽"),
+            Service(id: 3, title: "Отец и сын -15%", duration: "1 час", amount: 1000, regularAmount: 2000,  currency: "₽"),
         ]
     }
     
+        // здесь услуги от топ барберов
     static func getProBarberServices() -> [Service] {
         
         [
-            Service(id: 6, title: "Haircut Pro Barber", duration: "1h", amount: 1000, currency: "$"),
-            Service(id: 7, title: "Head Shaving Pro Barber", duration: "1h", amount: 1000, currency: "$"),
-            Service(id: 8, title: "Children Haircut (6 - 10 years) Pro Barber", duration: "1h", amount: 1000, currency: "$"),
-            Service(id: 9, title: "Beard Pro Barber", duration: "1h", amount: 1000, currency: "$"),
-            Service(id: 10, title: "Beard Tinting Pro Barber", duration: "1h", amount: 1000, currency: "$"),
-            Service(id: 11, title: "Beard Shaving Pro Barber", duration: "1h", amount: 1000, currency: "$"),
-            Service(id: 12, title: "Beard Arranging Pro Barber", duration: "1h", amount: 1000, currency: "$")
+            Service(id: 4, title: "Стрижка ножницами", duration: "1 час", amount: 1000, currency: "₽"),
+            Service(id: 5, title: "Детская стрижка (6 - 10 лет) Pro Барбера", duration: "1 час", amount: 1000, currency: "₽"),
+            Service(id: 6, title: "Стрижка бороды", duration: "1 час", amount: 1400, currency: "₽"),
+            Service(id: 7, title: "Подкраска бороды", duration: "1 час", amount: 1400, currency: "₽"),
+            Service(id: 8, title: "Подбор стиля", duration: "1 час", amount: 2000, currency: "₽"),
+            Service(id: 9, title: "Комплексный уход", duration: "1 час", amount: 3000, currency: "₽")
         ]
     }
-    
+        // Здесь услуги от обычных барберов
     static func getBarberServices() -> [Service] {
         
         [
-            Service(id: 13, title: "Haircut", duration: "1h", amount: 1000, currency: "$"),
-            Service(id: 14, title: "Head Shaving", duration: "1h", amount: 1000, currency: "$"),
-            Service(id: 15, title: "Children Haircut (6 - 10 years)", duration: "1h", amount: 1000, currency: "$"),
-            Service(id: 16, title: "Beard", duration: "1h", amount: 1000, currency: "$"),
-            Service(id: 17, title: "Beard Tinting", duration: "1h", amount: 1000, currency: "$"),
-            Service(id: 18, title: "Beard Shaving", duration: "1h", amount: 1000, currency: "$"),
-            Service(id: 19, title: "Beard Arranging", duration: "1h", amount: 1000, currency: "$")
+            Service(id: 10, title: "Стрижка ножницами", duration: "1 час", amount: 900, currency: "₽"),
+            Service(id: 11, title: "Детская стрижка (6 - 10 лет) Pro Барбера", duration: "1 час", amount: 1000, currency: "₽"),
+            Service(id: 12, title: "Стрижка бороды", duration: "1 час", amount: 1000, currency: "₽"),
+            Service(id: 13, title: "Подкраска бороды", duration: "1 час", amount: 80000, currency: "₽"),
+            Service(id: 14, title: "Подбор стиля", duration: "1 час", amount: 1000, currency: "₽"),
+            Service(id: 15, title: "Комплексный уход", duration: "1 час", amount: 1000, currency: "₽")
         ]
     }
     
@@ -83,11 +81,12 @@ extension BookingManager {
         return BookingManager.getBarberServices()[0]
     }
     
+    //Спа услуги
     static func getSpaServices() -> [Service] {
         
         [
-            Service(id: 20, title: "Additional Care", duration: "1h", amount: 1000, currency: "$"),
-            Service(id: 21, title: "Eyebrow Correction", duration: "1h", amount: 1000, currency: "$")
+            Service(id: 16, title: "Комплекс СПА услуг для лица", duration: "1 час", amount: 1000, currency: ""),
+            Service(id: 17, title: "Маникюр", duration: "1 час", amount: 1000, currency: "₽")
         ]
     }
 }
