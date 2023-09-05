@@ -4,6 +4,7 @@
 //
 //  Created by Borinschi Ivan on 17.12.2020.
 //
+// Редактор профиля и личных данных
 
 import UIKit
 import DSKit
@@ -16,7 +17,7 @@ class ProfileDetailsViewController: DSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Personal Data"
+        title = "Персональные данные"
         update()
     }
     
@@ -49,7 +50,7 @@ extension ProfileDetailsViewController {
     }
 }
 
-// MARK: - Personal details form
+// MARK: - Personal details form - Форма заполнения персональных даннных
 extension ProfileDetailsViewController {
     
     /// Personal details form
@@ -57,25 +58,25 @@ extension ProfileDetailsViewController {
     func getPersonalDetailsSection() -> DSSection {
         
         // Full name
-        let fullName = DSTextFieldVM.name(placeholder: "Full Name")
-        fullName.errorPlaceHolderText = "Minimum 3 characters maximum 35"
+        let fullName = DSTextFieldVM.name(placeholder: "Имя")
+        fullName.errorPlaceHolderText = "Минимум 3 символа, максиму 35"
         fullName.text = person.name
         fullName.didUpdate = { text in
-            print(text.text ?? "No value found")
+            print(text.text ?? "Введите имя")
         }
         
         // Email
         let email = DSTextFieldVM.email(placeholder: "Email")
         email.text = person.email
-        email.errorPlaceHolderText = "Example: email@example.com"
+        email.errorPlaceHolderText = "Пример: email@example.com"
         
         // Phone
-        let phone = DSTextFieldVM.phone(placeholder: "Phone Number")
+        let phone = DSTextFieldVM.phone(placeholder: "Номер телефона")
         phone.text = person.phone
-        phone.errorPlaceHolderText = "Example: 0x xxx xx xx"
+        phone.errorPlaceHolderText = "Пример: 7928 111 11 1"
         
         // Update
-        var updateButton = DSButtonVM(title: "Update")
+        var updateButton = DSButtonVM(title: "Обновить")
         
         // Handle did tap on update button
         updateButton.didTap = { [unowned self] model in
@@ -93,7 +94,7 @@ extension ProfileDetailsViewController {
     
     /// Show success message
     func showSuccessMessage() {
-        self.show(message: "Your profile was successfully updated", type: .success, timeOut: 2) {
+        self.show(message: "Ваш профиль успешно обновлен", type: .success, timeOut: 2) {
             self.popToRoot()
         }
     }

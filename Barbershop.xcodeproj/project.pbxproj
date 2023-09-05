@@ -18,14 +18,9 @@
 		60CE880327B55F800084493C /* MyBookingsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE87FE27B55F800084493C /* MyBookingsViewController.swift */; };
 		60CE880427B55F800084493C /* BookingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE87FF27B55F800084493C /* BookingViewController.swift */; };
 		60CE880527B55F810084493C /* AboutUsFeedbackViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE880027B55F800084493C /* AboutUsFeedbackViewController.swift */; };
-		60CE881027B55FA70084493C /* ChangeLanguageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE880727B55FA60084493C /* ChangeLanguageController.swift */; };
 		60CE881127B55FA70084493C /* UpdatePasswordViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE880827B55FA60084493C /* UpdatePasswordViewController.swift */; };
-		60CE881227B55FA70084493C /* ChangeLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE880927B55FA70084493C /* ChangeLocationViewController.swift */; };
-		60CE881327B55FA70084493C /* MembershipViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE880A27B55FA70084493C /* MembershipViewController.swift */; };
 		60CE881427B55FA70084493C /* NotificationsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE880B27B55FA70084493C /* NotificationsViewController.swift */; };
-		60CE881527B55FA70084493C /* LoyaltyCardsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE880C27B55FA70084493C /* LoyaltyCardsViewController.swift */; };
 		60CE881627B55FA70084493C /* NotificationDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE880D27B55FA70084493C /* NotificationDetailsViewController.swift */; };
-		60CE881727B55FA70084493C /* CertificatesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE880E27B55FA70084493C /* CertificatesViewController.swift */; };
 		60CE881827B55FA70084493C /* ProfileDetailsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE880F27B55FA70084493C /* ProfileDetailsViewController.swift */; };
 		60CE882127B55FBF0084493C /* BookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE881A27B55FBF0084493C /* BookViewController.swift */; };
 		60CE882227B55FBF0084493C /* SelectHourViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 60CE881B27B55FBF0084493C /* SelectHourViewController.swift */; };
@@ -69,14 +64,9 @@
 		60CE87FE27B55F800084493C /* MyBookingsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MyBookingsViewController.swift; sourceTree = "<group>"; };
 		60CE87FF27B55F800084493C /* BookingViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookingViewController.swift; sourceTree = "<group>"; };
 		60CE880027B55F800084493C /* AboutUsFeedbackViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AboutUsFeedbackViewController.swift; sourceTree = "<group>"; };
-		60CE880727B55FA60084493C /* ChangeLanguageController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeLanguageController.swift; sourceTree = "<group>"; };
 		60CE880827B55FA60084493C /* UpdatePasswordViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UpdatePasswordViewController.swift; sourceTree = "<group>"; };
-		60CE880927B55FA70084493C /* ChangeLocationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ChangeLocationViewController.swift; sourceTree = "<group>"; };
-		60CE880A27B55FA70084493C /* MembershipViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MembershipViewController.swift; sourceTree = "<group>"; };
 		60CE880B27B55FA70084493C /* NotificationsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationsViewController.swift; sourceTree = "<group>"; };
-		60CE880C27B55FA70084493C /* LoyaltyCardsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LoyaltyCardsViewController.swift; sourceTree = "<group>"; };
 		60CE880D27B55FA70084493C /* NotificationDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NotificationDetailsViewController.swift; sourceTree = "<group>"; };
-		60CE880E27B55FA70084493C /* CertificatesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CertificatesViewController.swift; sourceTree = "<group>"; };
 		60CE880F27B55FA70084493C /* ProfileDetailsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProfileDetailsViewController.swift; sourceTree = "<group>"; };
 		60CE881A27B55FBF0084493C /* BookViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BookViewController.swift; sourceTree = "<group>"; };
 		60CE881B27B55FBF0084493C /* SelectHourViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SelectHourViewController.swift; sourceTree = "<group>"; };
@@ -177,11 +167,6 @@
 		60CE880627B55F990084493C /* Profile */ = {
 			isa = PBXGroup;
 			children = (
-				60CE880E27B55FA70084493C /* CertificatesViewController.swift */,
-				60CE880727B55FA60084493C /* ChangeLanguageController.swift */,
-				60CE880927B55FA70084493C /* ChangeLocationViewController.swift */,
-				60CE880C27B55FA70084493C /* LoyaltyCardsViewController.swift */,
-				60CE880A27B55FA70084493C /* MembershipViewController.swift */,
 				60CE880D27B55FA70084493C /* NotificationDetailsViewController.swift */,
 				60CE880B27B55FA70084493C /* NotificationsViewController.swift */,
 				60CE880F27B55FA70084493C /* ProfileDetailsViewController.swift */,
@@ -348,13 +333,10 @@
 			files = (
 				60CE881827B55FA70084493C /* ProfileDetailsViewController.swift in Sources */,
 				60CE883027B55FE10084493C /* Service.swift in Sources */,
-				60CE881727B55FA70084493C /* CertificatesViewController.swift in Sources */,
 				60CE882F27B55FE10084493C /* BookingManager.swift in Sources */,
 				60CE882D27B55FE10084493C /* Address+ViewModel.swift in Sources */,
-				60CE881327B55FA70084493C /* MembershipViewController.swift in Sources */,
 				60CE881627B55FA70084493C /* NotificationDetailsViewController.swift in Sources */,
 				60CE880227B55F800084493C /* AboutUsViewController.swift in Sources */,
-				60CE881527B55FA70084493C /* LoyaltyCardsViewController.swift in Sources */,
 				60CE882627B55FBF0084493C /* SelectServicesViewController.swift in Sources */,
 				60CE87EB27B55F5A0084493C /* ViewController.swift in Sources */,
 				60CE881427B55FA70084493C /* NotificationsViewController.swift in Sources */,
@@ -364,7 +346,6 @@
 				60CE882427B55FBF0084493C /* SpecialistDetailsFeedbackViewController.swift in Sources */,
 				60CE880127B55F800084493C /* ProfileViewController.swift in Sources */,
 				60CE882727B55FBF0084493C /* SpecialistDetailsViewController.swift in Sources */,
-				60CE881027B55FA70084493C /* ChangeLanguageController.swift in Sources */,
 				60CE882227B55FBF0084493C /* SelectHourViewController.swift in Sources */,
 				60CE882527B55FBF0084493C /* BookingDetailsViewController.swift in Sources */,
 				60CE882E27B55FE10084493C /* Person+ViewModel.swift in Sources */,
@@ -373,7 +354,6 @@
 				60CE880427B55F800084493C /* BookingViewController.swift in Sources */,
 				60D4E11927C4D79C006DC65A /* RetroAppearance.swift in Sources */,
 				60CE882127B55FBF0084493C /* BookViewController.swift in Sources */,
-				60CE881227B55FA70084493C /* ChangeLocationViewController.swift in Sources */,
 				60CE87E927B55F5A0084493C /* SceneDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

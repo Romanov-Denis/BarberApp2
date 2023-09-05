@@ -16,7 +16,7 @@ class UpdatePasswordViewController: DSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Update Password"
+        title = "Обновить пароль"
         update()
     }
     

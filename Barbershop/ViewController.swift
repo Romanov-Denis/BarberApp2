@@ -21,19 +21,19 @@ open class ViewController: DSTabBarViewController {
         let config = DSSFSymbolConfig.symbolConfig(style: .custom(size: 20, weight: .semibold))
         
         // Booking tab
-        booking.tabBarItem.title = "Booking"
+        booking.tabBarItem.title = "Бронирование"
         booking.tabBarItem.image = UIImage(systemName: "calendar.badge.plus", withConfiguration: config)
         
         // Profile tab
-        profile.tabBarItem.title = "Profile"
+        profile.tabBarItem.title = "Профиль"
         profile.tabBarItem.image = UIImage(systemName: "person.crop.circle", withConfiguration: config)
         
         // About us
-        aboutUs.tabBarItem.title = "About Us"
+        aboutUs.tabBarItem.title = "О нас"
         aboutUs.tabBarItem.image = UIImage(systemName: "scissors", withConfiguration: config)
         
         // My bookings
-        myBookings.tabBarItem.title = "My Bookings"
+        myBookings.tabBarItem.title = "Мои записи"
         myBookings.tabBarItem.image = UIImage(systemName: "bookmark.fill", withConfiguration: config)
         
         // Set tabbar view controllers

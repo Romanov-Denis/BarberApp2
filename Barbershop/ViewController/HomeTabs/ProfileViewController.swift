@@ -23,7 +23,7 @@ class ProfileViewController: DSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Profile"
+        title = "Профиль"
         update()
     }
     
@@ -34,8 +34,6 @@ class ProfileViewController: DSViewController {
             
             // Show authorized user sections
             self.show(content: [getProfileSettingsSection(),
-                                getGeographySection(),
-                                getMemberShipSection(),
                                 getLogOutSection()])
         } else {
             
@@ -43,8 +41,7 @@ class ProfileViewController: DSViewController {
             let authenticationForm: DSSection = (currentFormSectionIndex == .login ? getLoginAuthorizationSection() : getSmsAuthorizationSection())
             
             self.show(content: [getSwitchAuthenticationModesSection(),
-                                authenticationForm,
-                                getGuestUserProfileSection()])
+                                authenticationForm])
         }
     }
 }
@@ -54,7 +51,7 @@ extension ProfileViewController {
     
     func getSwitchAuthenticationModesSection() -> DSSection {
         
-        let segment = DSSegmentVM(segments: ["Login", "SMS Authorization"])
+        let segment = DSSegmentVM(segments: ["Логин", "Вход по SMS"])
         
         segment.didTapOnSegment = { segment in
             self.currentFormSectionIndex = ProfileViewControllerSegments(rawValue: segment.index) ?? .login
@@ -72,51 +69,51 @@ extension ProfileViewController {
     
     /// Get profile geography sections
     /// - Returns: DSSection
-    func getGeographySection() -> DSSection {
-        
-        let header = DSLabelVM(.subheadline, text: "Geography")
-        
-        var changeLocation = action(title: "Change location", leftSymbol: "location.fill")
-        changeLocation.didTap { [unowned self] (_ : DSActionVM) in
-            let vc = ChangeLocationViewController()
-            self.push(vc)
-        }
-        
-        var changeLanguage = action(title: "Change language", leftSymbol: "textformat.alt")
-        changeLanguage.didTap { [unowned self] (_ : DSActionVM) in
-            let vc = ChangeLanguageController()
-            self.push(vc)
-        }
-        
-        return [header, changeLocation, changeLanguage].list()
-    }
+//    func getGeographySection() -> DSSection {
+//
+//        let header = DSLabelVM(.subheadline, text: "Geography")
+//
+//        var changeLocation = action(title: "Change location", leftSymbol: "location.fill")
+//        changeLocation.didTap { [unowned self] (_ : DSActionVM) in
+//            let vc = ChangeLocationViewController()
+//            self.push(vc)
+//        }
+//
+//        var changeLanguage = action(title: "Change language", leftSymbol: "textformat.alt")
+//        changeLanguage.didTap { [unowned self] (_ : DSActionVM) in
+//            let vc = ChangeLanguageController()
+//            self.push(vc)
+//        }
+//
+//        return [header, changeLocation, changeLanguage].list()
+//    }
     
     /// Get membership section
     /// - Returns: DSSection
-    func getMemberShipSection() -> DSSection {
-        
-        let header = DSLabelVM(.subheadline, text: "Membership")
-        
-        var loyaltyCards = action(title: "Loyalty Cards", leftSymbol: "rectangle.fill")
-        loyaltyCards.didTap { [unowned self] (_ : DSActionVM) in
-            let vc = LoyaltyCardsViewController()
-            self.push(vc)
-        }
-        
-        var membership = action(title: "Membership", leftSymbol: "person.2.fill")
-        membership.didTap { [unowned self] (_ : DSActionVM) in
-            let vc = MembershipViewController()
-            self.push(vc)
-        }
-        
-        var certificates = action(title: "Certificates", leftSymbol: "rectangle.stack.fill.badge.person.crop")
-        certificates.didTap { [unowned self] (_ : DSActionVM) in
-            let vc = CertificatesViewController()
-            self.push(vc)
-        }
-        
-        return [header, loyaltyCards, membership, certificates].list()
-    }
+//    func getMemberShipSection() -> DSSection {
+//
+//        let header = DSLabelVM(.subheadline, text: "Membership")
+//
+//        var loyaltyCards = action(title: "Loyalty Cards", leftSymbol: "rectangle.fill")
+//        loyaltyCards.didTap { [unowned self] (_ : DSActionVM) in
+//            let vc = LoyaltyCardsViewController()
+//            self.push(vc)
+//        }
+//
+//        var membership = action(title: "Membership", leftSymbol: "person.2.fill")
+//        membership.didTap { [unowned self] (_ : DSActionVM) in
+//            let vc = MembershipViewController()
+//            self.push(vc)
+//        }
+//
+//        var certificates = action(title: "Certificates", leftSymbol: "rectangle.stack.fill.badge.person.crop")
+//        certificates.didTap { [unowned self] (_ : DSActionVM) in
+//            let vc = CertificatesViewController()
+//            self.push(vc)
+//        }
+//
+//        return [header, loyaltyCards, membership, certificates].list()
+//    }
     
     /// Profile settings section
     /// - Returns: DSSection
@@ -134,13 +131,13 @@ extension ProfileViewController {
             self.push(vc)
         }
         
-        var notifications = action(title: "Notifications", leftSymbol: "bell.fill")
+        var notifications = action(title: "Уведомления", leftSymbol: "bell.fill")
         notifications.didTap { [unowned self] (_ : DSActionVM) in
             let vc = NotificationsViewController()
             self.push(vc)
         }
         
-        var passwordUpdate = action(title: "Password Update", leftSymbol: "lock.fill")
+        var passwordUpdate = action(title: "Обновление пароля", leftSymbol: "lock.fill")
         passwordUpdate.didTap { [unowned self] (_ : DSActionVM) in
             let vc = UpdatePasswordViewController()
             self.push(vc)
@@ -153,13 +150,13 @@ extension ProfileViewController {
     /// - Returns: <#description#>
     func getLogOutSection() -> DSSection {
         
-        var button = DSButtonVM(title: "Log out")
+        var button = DSButtonVM(title: "Выход")
         
         button.didTap { [unowned self] (_: DSButtonVM) in
             
             BookingManager.shared.authorized = false
             
-            self.show(message: "Log out", timeOut: 2) {
+            self.show(message: "Выход", timeOut: 2) {
                 self.update()
             }
         }
@@ -173,32 +170,32 @@ extension ProfileViewController {
     
     /// Guest user profile section
     /// - Returns: DSSection
-    func getGuestUserProfileSection() -> DSSection {
-        
-        var certificates = action(title: "Certificates", leftSymbol: "rectangle.stack.fill.badge.person.crop")
-        
-        certificates.didTap { [unowned self] (_ : DSActionVM) in
-            let vc = CertificatesViewController()
-            self.push(vc)
-        }
-        
-        var changeLocation = action(title: "Change location", leftSymbol: "location.fill")
-        changeLocation.didTap { [unowned self] (_ : DSActionVM) in
-            let vc = ChangeLocationViewController()
-            self.push(vc)
-        }
-        
-        var changeLanguage = action(title: "Change language", leftSymbol: "textformat.alt")
-        changeLanguage.didTap { [unowned self] (_ : DSActionVM) in
-            let vc = ChangeLanguageController()
-            self.push(vc)
-        }
-        
-        let section = [certificates, changeLocation, changeLanguage].list()
-        section.subheadlineHeader("Settings")
-        
-        return section
-    }
+//    func getGuestUserProfileSection() -> DSSection {
+//
+//        var certificates = action(title: "Certificates", leftSymbol: "rectangle.stack.fill.badge.person.crop")
+//
+//        certificates.didTap { [unowned self] (_ : DSActionVM) in
+//            let vc = CertificatesViewController()
+//            self.push(vc)
+//        }
+//
+//        var changeLocation = action(title: "Change location", leftSymbol: "location.fill")
+//        changeLocation.didTap { [unowned self] (_ : DSActionVM) in
+//            let vc = ChangeLocationViewController()
+//            self.push(vc)
+//        }
+//
+//        var changeLanguage = action(title: "Change language", leftSymbol: "textformat.alt")
+//        changeLanguage.didTap { [unowned self] (_ : DSActionVM) in
+//            let vc = ChangeLanguageController()
+//            self.push(vc)
+//        }
+//
+//        let section = [certificates, changeLocation, changeLanguage].list()
+//        section.subheadlineHeader("Settings")
+//
+//        return section
+//    }
 }
 
 // MARK: - Authentification
@@ -217,20 +214,20 @@ extension ProfileViewController {
         }
         
         // Password
-        let password = DSTextFieldVM.password(placeholder: "Password")
+        let password = DSTextFieldVM.password(placeholder: "Пароль")
         password.text = formPasswordValue
-        password.errorPlaceHolderText = "min 8 characters"
+        password.errorPlaceHolderText = "Минимум 8 символов"
         password.didUpdate = { textField in
             self.formPasswordValue = textField.text
         }
         
         // Sign in button
-        var button = DSButtonVM(title: "Sign In")
+        var button = DSButtonVM(title: "Вход")
         button.didTap { [unowned self] (_: DSButtonVM) in
             
             // Comment this code to enable validation
             BookingManager.shared.authorized = true
-            self.show(message: "Successful authorization", type: .success) {
+            self.show(message: "Успешный вход", type: .success) {
                 self.update()
             }
             

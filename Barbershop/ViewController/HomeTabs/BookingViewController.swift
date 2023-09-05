@@ -5,6 +5,7 @@
 //  Created by Borinschi Ivan on 17.12.2020.
 //
 
+// Выбор адреса и магазина  - первое вью
 import UIKit
 import DSKit
 import DSKitFakery
@@ -17,7 +18,7 @@ class BookingViewController: DSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Booking"
+        title = "Бронирование"
         update()
     }
     
@@ -27,7 +28,7 @@ class BookingViewController: DSViewController {
     
     func update() {
         
-        // Map all addresses in to DSViewModel / DSMapVM
+        // Map all addresses in to DSViewModel / DSMapVM -
         var locations = faker.addresses.map { (address) -> DSViewModel in
             address.viewModel()
         }

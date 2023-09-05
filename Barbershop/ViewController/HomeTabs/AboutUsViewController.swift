@@ -5,6 +5,8 @@
 //  Created by Borinschi Ivan on 17.12.2020.
 //
 
+// Вкладки "О нас"
+
 import UIKit
 import DSKit
 import DSKitFakery
@@ -23,7 +25,7 @@ class AboutUsViewController: DSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "About Us"
+        title = "О нас"
         update()
     }
     
@@ -58,7 +60,7 @@ class AboutUsViewController: DSViewController {
         case .info:
             self.hideBottomContent()
         case .comments:
-            let button = DSButtonVM(title: "Leave feedback", icon: DSSFSymbolConfig.buttonIcon("message.fill")) { _ in
+            let button = DSButtonVM(title: "Оставьте отзыв", icon: DSSFSymbolConfig.buttonIcon("message.fill")) { _ in
                 self.present(vc: AboutUsFeedbackViewController(), presentationStyle: .fullScreen)
             }
             self.showBottom(content: [button])
@@ -76,10 +78,10 @@ extension AboutUsViewController {
     func getInfoHeaderSection() -> DSSection {
         
         // Title
-        let title = DSLabelVM(.title2, text: "First barber shop in town")
+        let title = DSLabelVM(.title2, text: "Giggles Barbershop")
         
         // Subtitle
-        let subtitle = DSLabelVM(.body ,text: "Here you will feel the attitude, here you will receive quality, here you will see the atmosphere of an authentic barbershop")
+        let subtitle = DSLabelVM(.body ,text: " знаменитый барбершоп в Ростове-на-Дону, где мы делаем стиль! Наши мастера стригут со вкусом и чувством стиля. Мы гарантируем безупречный сервис и качественную стрижку.")
         
         return [title, subtitle].list()
     }
@@ -113,21 +115,21 @@ extension AboutUsViewController {
     }
 }
 
-// MARK: - Contacts
+// MARK: - Contacts - контактная информация
 extension AboutUsViewController {
     
     /// Contacts section
     /// - Returns: DSSection
     func getContactsSection() -> DSSection {
         
-        let phone = textRow(title: "Phone: ", details: faker.phoneNumber, icon: "phone.fill")
-        let address = textRow(title: "Address: ", details: faker.streetAddress, icon: "map.fill")
-        let workingHours = textRow(title: "Working Hours: ", details: "Open ⋅ Closes 5PM", icon: "calendar.badge.clock")
-        let health = textRow(title: "Health and safety: ", details: "Mask required · Temperature check required · Staff wear masks · Staff get temperature checks", icon: "info.circle.fill")
+        let phone = textRow(title: "Телефон: ", details: faker.phoneNumber, icon: "phone.fill")
+        let address = textRow(title: "Адрес: ", details: faker.streetAddress, icon: "map.fill")
+        let workingHours = textRow(title: "Часы работы: ", details: "10:00 - 20:00", icon: "calendar.badge.clock")
+//        let health = textRow(title: "Здоровье и безопасность: ", details: "Требуется маска · Проверка температуры· Staff wear masks · Staff get temperature checks", icon: "info.circle.fill")
         let map = DSMapVM(coordinate: faker.address.coordinate)
-        let button = DSButtonVM(title: "Get directions", icon: UIImage(systemName: "map.fill"))
+        let button = DSButtonVM(title: "Описание", icon: UIImage(systemName: "map.fill"))
         
-        return [phone, address, workingHours, health, map, button].list()
+        return [phone, address, workingHours, map, button].list()
     }
     
     func textRow(title: String, details: String, icon: String) -> DSActionVM {
@@ -183,7 +185,7 @@ extension AboutUsViewController {
     /// - Returns: DSSection
     func getSwitchSectionsSection() -> DSSection {
         
-        let segment = DSSegmentVM(segments: ["Info", "Comments", "Contacts"])
+        let segment = DSSegmentVM(segments: ["Информация", "Коментарии", "Контакты"])
         
         segment.didTapOnSegment = { segment in
             self.currentSectionIndex =  AboutUsViewControllerSegments(rawValue: segment.index) ?? .info

@@ -16,7 +16,7 @@ class NotificationsViewController: DSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "Notifications"
+        title = "Уведомления"
         update()
     }
     

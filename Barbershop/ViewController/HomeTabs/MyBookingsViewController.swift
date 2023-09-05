@@ -14,7 +14,7 @@ class MyBookingsViewController: DSViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        title = "My Bookings"
+        title = "Мои записи"
         update()
     }
     
@@ -42,7 +42,7 @@ extension MyBookingsViewController {
     
     func getSwitchSectionsSection() -> DSSection {
         
-        let segment = DSSegmentVM(segments: ["Upcoming", "Past", "Special"])
+        let segment = DSSegmentVM(segments: ["Предстоящие", "Прошлые"])
         
         segment.didTapOnSegment = { segment in
             self.currentSectionIndex = segment.index
@@ -84,7 +84,7 @@ extension MyBookingsViewController {
     func getSpecialBookingsSection() -> DSSection {
         
          return getPlaceholderSection(image: UIImage(systemName: "wand.and.stars"),
-                                      text: "You don't have any special\nbookings at the moment")
+                                      text: "На данный момент записей нет")
     }
 }
 

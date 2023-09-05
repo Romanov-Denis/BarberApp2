@@ -25,13 +25,13 @@ class AboutUsFeedbackViewController: DSViewController {
     
     func update() {
         
-        let button = DSButtonVM(title: "Submit") { _ in
-            self.show(message: "Thank you for your feedback", type: .success) {
+        let button = DSButtonVM(title: "Отправить") { _ in
+            self.show(message: "Спасибо за отзыв!", type: .success) {
                 self.dismiss()
             }
         }
         
-        let cancel = DSButtonVM(title: "Cancel", type: .link) { _ in
+        let cancel = DSButtonVM(title: "Закрыть", type: .link) { _ in
             self.dismiss()
         }
         
@@ -44,7 +44,7 @@ class AboutUsFeedbackViewController: DSViewController {
     func specialistDetailsSection() -> DSSection {
         
         // Title
-        let title = DSLabelVM(.title1, text: "Feedback")
+        let title = DSLabelVM(.title1, text: "Обратная связь")
         return [title].list()
     }
     
@@ -60,7 +60,7 @@ class AboutUsFeedbackViewController: DSViewController {
         }
         textView.height = .absolute(150)
         
-        return [textView].list().subheadlineHeader("Write your feedback")
+        return [textView].list().subheadlineHeader("Напишите ваш отзыв")
     }
     
     /// Rating section
@@ -85,7 +85,7 @@ class AboutUsFeedbackViewController: DSViewController {
             self.update()
         })
         
-        return ratingViewModels.gallery().subheadlineHeader("Rate our service")
+        return ratingViewModels.gallery().subheadlineHeader("Оцените наш сервис")
     }
     
     /// Star view model
